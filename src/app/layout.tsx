@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import UserSync from "@/components/UserSync";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
@@ -27,13 +28,14 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
         >
-        {children}
-      </body>
-    </html>
-        </ClerkProvider>
+          <UserSync/>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
